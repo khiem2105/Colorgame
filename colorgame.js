@@ -17,6 +17,7 @@ var isEasy = false;
 var isHard = true;
 var isOver = false;
 var score = document.querySelector(".score");
+var points = 0;
 //*****Function to pick random number and random color*****//
 function pickRandomNum(b) {
     return Math.floor(Math.random() * b);
@@ -55,7 +56,8 @@ function clickCell() {
     if(this.style.backgroundColor === cells[answer].style.backgroundColor && turns <= 3) {
         gameOver();
         message.textContent = "You won!";
-        score.textContent +=1;
+        points++;
+        score.textContent = points;
     }
     else if(((turns === 3 && this.style.backgroundColor !== cells[answer].style.background)
             || turns > 3) && !isOver ) {
@@ -106,7 +108,6 @@ playHard();
 //replay
 function rePlayHard() {
     turns = 0;
-    hoverNormal();
     for(var i = 0; i < cells.length; i++) {
         cells[i].removeEventListener("click",clickCell);
     }
@@ -117,7 +118,6 @@ function rePlayHard() {
 };
 function rePlayEasy() {
     turns = 0;
-    hoverNormal();
     for(var i = 0; i < cells.length; i++) {
         cells[i].removeEventListener("click",clickCell);
     }
@@ -133,18 +133,16 @@ function gameOver() {
         cells[j].style.backgroundColor = cells[answer].style.backgroundColor;
     }
     title.style.backgroundColor = cells[answer].style.backgroundColor;
-    replay.textContent = "PLAY AGAIN ?"
+    replay.textContent = "CONTINUE ?"
     subHeadings[0].classList.add("invisible");
     subHeadings[1].classList.add("invisible");
     mainHeading.textContent = "This is the answer!";
     isOver = true;
-
-    hoverCorrect();
 };
 //*****Choose level*****
 //easy
 easyBtn.addEventListener("click",function() {
-    if(isHard && !isOver) {
+    if(isHard) {
         for(var i = 6; i < cells.length; i++) {
             cells[i].classList.add("invisible");
         }
@@ -153,11 +151,12 @@ easyBtn.addEventListener("click",function() {
         isEasy = true;
         replay.removeEventListener("click",rePlayHard);
         replay.addEventListener("click",rePlayEasy);
+        score.textContent = 0;
     }
 });
 //hard
 hardBtn.addEventListener("click",function() {
-    if(isEasy && !isOver) {
+    if(isEasy) {
         for(var i = 6; i < cells.length; i++) {
             cells[i].classList.remove("invisible");
         }
@@ -166,31 +165,6 @@ hardBtn.addEventListener("click",function() {
         isHard = true;
         replay.removeEventListener("click",rePlayEasy);
         replay.addEventListener("click",rePlayHard);
+        score.textContent = 0;
     }
-    for(var i = 6; i < cells.length; i++) {
-        cells[i].classList.remove("invisible");
-    }
-    replay.removeEventListener("click",rePlayEasy);
-    replay.addEventListener("click",rePlayHard);
 });
-//*****Hover effect*****
-function hoverCorrect() {
-    for(var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("mouseover",function() {
-            this.style.backgroundColor = cells[answer].style.backgroundColor;
-        });
-        btns[i].addEventListener("mouseout",function() {
-            this.style.backgroundColor = "antiquewhite";
-        });
-    }
-};
-function hoverNormal() {
-    for(var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("mouseover",function() {
-            this.style.backgroundColor = "#3282b8"
-        });
-        btns[i].addEventListener("mouseout",function() {
-            this.style.backgroundColor = "antiquewhite";
-        });
-    }
-};
