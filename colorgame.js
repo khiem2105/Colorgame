@@ -197,3 +197,4 @@ function hoverNormal() {
     }
 };
 
+var score;
