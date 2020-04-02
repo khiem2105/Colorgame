@@ -13,6 +13,7 @@ body {
 .nav {
     background-color: antiquewhite;
     padding: 0;
+    font-weight: 700;
 }
 
 #container {
@@ -40,15 +41,6 @@ a {
     margin-right: 2px;
     height: 100%;
     padding: 1px 2px;
-    font-weight: 700;
-}
-
-.level {
-    height: 100%;
-}
-
-.level a {
-    height: 26px;
 }
 
 a:hover,
@@ -56,10 +48,6 @@ a:active {
     text-decoration: none;
     background-color: #3282b8;
     color: white;
-}
-
-.text {
-    font-weight: 700;
 }
 
 .invisible {
@@ -71,6 +59,7 @@ a:active {
         font-size: 12px;
     }
 }
+
 h1,h2 {
     font-size: 2rem;
 }

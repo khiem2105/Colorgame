@@ -16,6 +16,7 @@ var subHeadings = document.querySelectorAll("h2");
 var isEasy = false;
 var isHard = true;
 var isOver = false;
+var score = document.querySelector(".score");
 //*****Function to pick random number and random color*****//
 function pickRandomNum(b) {
     return Math.floor(Math.random() * b);
@@ -54,6 +55,7 @@ function clickCell() {
     if(this.style.backgroundColor === cells[answer].style.backgroundColor && turns <= 3) {
         gameOver();
         message.textContent = "You won!";
+        score.textContent +=1;
     }
     else if(((turns === 3 && this.style.backgroundColor !== cells[answer].style.background)
             || turns > 3) && !isOver ) {
@@ -111,8 +113,6 @@ function rePlayHard() {
     replay.textContent = "NEW COLORS";
     message.textContent = "You have 3 turns";
     title.style.backgroundColor = "#3282b8";
-    replay.style.backgroundColor = "antiquewhite";
-    replay.style.color = "#3282b8";
     playHard();
 };
 function rePlayEasy() {
@@ -124,8 +124,6 @@ function rePlayEasy() {
     replay.textContent = "NEW COLORS";
     message.textContent = "You have 3 turns";
     title.style.backgroundColor = "#3282b8";
-    replay.style.backgroundColor = "antiquewhite";
-    replay.style.color = "#3282b8";
     playEasy();
 };
 replay.addEventListener("click",rePlayHard);
@@ -196,5 +194,3 @@ function hoverNormal() {
         });
     }
 };
-
-var score;
