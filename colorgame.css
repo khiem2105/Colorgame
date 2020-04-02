@@ -19,7 +19,7 @@ body {
 #container {
     height: 500px;
     max-width: 600px;
-    margin: 10px auto 0 auto;
+    margin: 20px auto 0 auto;
 }
 
 .color-cell {
@@ -40,13 +40,24 @@ a {
     text-decoration: none;
     margin-right: 2px;
     height: 100%;
-    padding: 1px 2px;
+    color: #3282b8;
+    padding-bottom: 1px;
+    transition: border-bottom 0.5s;
 }
 
+a:hover {
+    color: #3282b8;
+    text-decoration: none;
+    border-bottom: 1px solid #3282b8;   
+}
+
+.active {
+    border-bottom: 1px solid #3282b8;
+}
 .invisible {
     display: none;
 }
-
+/*Media queries */
 @media screen and (max-width : 576px) {
     body {
         font-size: 12px;
@@ -55,4 +66,17 @@ a {
 
 h1,h2 {
     font-size: 2rem;
+}
+
+@media screen and (max-width : 992px) {
+    .title {
+        padding: 10px 0;
+    }
+    #container {
+        height: 400px;
+        margin-top: 10px;
+    }
+    a {
+        margin-right: 1px;
+    }
 }

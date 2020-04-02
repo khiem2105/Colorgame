@@ -151,7 +151,10 @@ easyBtn.addEventListener("click",function() {
         isEasy = true;
         replay.removeEventListener("click",rePlayHard);
         replay.addEventListener("click",rePlayEasy);
+        points = 0;
         score.textContent = 0;
+        hardBtn.classList.remove("active");
+        easyBtn.classList.add("active");
     }
 });
 //hard
@@ -165,6 +168,9 @@ hardBtn.addEventListener("click",function() {
         isHard = true;
         replay.removeEventListener("click",rePlayEasy);
         replay.addEventListener("click",rePlayHard);
+        points = 0;
         score.textContent = 0;
+        hardBtn.classList.add("active");
+        easyBtn.classList.remove("active");
     }
 });
