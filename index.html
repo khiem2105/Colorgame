@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet"  type="text/css" href="colorgame.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="header">
+        <div class="title">
+            <h2 class="text-center">THE COLOR</h2>
+            <h1 class="text-center">RGB(<span class="red">red</span>, <span class="green">green</span>,
+                    <span class="blue">blue</span>)
+            </h1>
+            <h2 class="text-center">GUESSING GAME</h2>
+        </div>    
+        <div class="nav">
+            <div class="container d-flex justify-content-around">
+                <a class="new-colors" href="#">NEW COLORS</a>
+                <span class="text">You have 3 turns</span>
+                <div class="level">
+                    <a href="#" class="easy">EASY</a>
+                    <a href="#" class="hard">HARD</a>
+                </div>
+            </div>
+        </div>       
+    </section>
+
+    <section class="game">
+        <div id="container" class="clearfix">
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+            <div class="color-cell"></div>
+        </div>
+    </section>
+    <script type="text/javascript" src="colorgame.js"></script>
+</body>
+</html>
